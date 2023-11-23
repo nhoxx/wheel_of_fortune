@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "code-push": "appcenter codepush release-react -a threeng0227-gmail.com/Wheel_of_forturn -d Staging"
+    "code-push": "appcenter codepush release-react -a threeng0227-gmail.com/Wheel_of_forturn -d Staging",
+    "bundle-android": "react-native bundle --platform android --verbose --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/"
   },
   "dependencies": {
     "@popmotion/popcorn": "^0.4.4",
