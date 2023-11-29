@@ -14,8 +14,6 @@ import WheelOfFortune from './src/WheelsOfFortune';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SplashScreen from 'react-native-splash-screen';
-import CodePush from 'react-native-code-push';
-import * as Progress from 'react-native-progress';
 
 const participants = [
   '10K',
@@ -27,10 +25,6 @@ const participants = [
   '1000K'
 ];
 
-const codePushOptions = {
-  installMode: CodePush.InstallMode.IMMEDIATE,
-  mandatoryInstallMode: CodePush.InstallMode.IMMEDIATE,
-};
 class App extends Component {
   constructor(props) {
     super(props);
@@ -39,43 +33,16 @@ class App extends Component {
       winnerValue: null,
       winnerIndex: null,
       started: false,
-      codePushReceivedBytes: 0
     };
     this.child = null;
     this.confettiRef = createRef();
-    this.total = 0;
   }
 
   componentDidMount() {
     setTimeout(() => {
       SplashScreen.hide();
     }, 1000);
-    syncWithCodePush = (status) => {
-      console.log('SplashScreen syncWithCodePush status = ' + status);
-      switch (status) {
-        case CodePush.SyncStatus.UP_TO_DATE:
-        case CodePush.SyncStatus.UPDATE_INSTALLED:
-        case CodePush.SyncStatus.UPDATE_IGNORED:
-        case CodePush.SyncStatus.UNKNOWN_ERROR:
-        case CodePush.SyncStatus.AWAITING_USER_ACTION:
-          break;
-        case CodePush.SyncStatus.SYNC_IN_PROGRESS:
-        case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
-        case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
-        case CodePush.SyncStatus.INSTALLING_UPDATE:
-          console.log('SplashScreen syncWithCodePush !bootstrapLoad');
-          break;
-      }
-    };
-
-    CodePush.sync(codePushOptions, syncWithCodePush, ({ receivedBytes, totalBytes }) => {
-      this.total = totalBytes;
-      this.setState({ codePushReceivedBytes: receivedBytes });
-    });
-
   }
-
-
 
   buttonPress = () => {
     this.setState({
@@ -129,7 +96,7 @@ class App extends Component {
                 <TouchableOpacity
                   onPress={() => this.buttonPress()}
                   style={styles.startButton}>
-                  <Text style={styles.startButtonText}>{'Quay nào!'}</Text>
+                  <Text style={styles.startButtonText}>{'Lets go!'}</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -147,7 +114,7 @@ class App extends Component {
             }}>
               <View style={styles.winnerView}>
                 <Text style={styles.winnerText}>
-                  Lụm bao lì xì  {participants[this.state.winnerIndex]}
+                  You win  {participants[this.state.winnerIndex]}
                 </Text>
                 <LinearGradient
                   colors={['#e04602', '#ffbc30']}
@@ -159,7 +126,7 @@ class App extends Component {
                       this.child._tryAgain();
                     }}
                   >
-                    <Text style={styles.tryAgainText}>{'Quay nào!'}</Text>
+                    <Text style={styles.tryAgainText}>{'Lets go!'}</Text>
                   </TouchableOpacity>
                 </LinearGradient>
                 <View style={{ height: 70 }} />
@@ -174,17 +141,6 @@ class App extends Component {
               />
             </View>
           </Modal>
-          {this.total != 0 && <Progress.Bar
-            style={{
-              bottom: 50,
-              position: 'absolute'
-            }}
-            progress={this.state.codePushReceivedBytes / this.total}
-            color={'white'}
-            showsText
-            width={Dimensions.get('window').width - 40}
-          />
-          }
         </ImageBackground>
       </View>
 

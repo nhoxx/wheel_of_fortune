@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
         android:padding="12dip"
-        android:text="Chúc Mừng Năm Mới"
+        android:text="Happy new year"
         android:textColor="#ffb902"
         android:textSize="30dp"
         android:textStyle="bold" />
@@ -24,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
         android:padding="12dip"
-        android:text="Lì Xì Đầu Năm"
+        android:text="Wheel of fortune"
         android:textColor="#ffb902"
         android:textSize="30dp"
         android:textStyle="bold" />
