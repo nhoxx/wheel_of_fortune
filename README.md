@@ -6,6 +6,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
    3. Animation
 
 # Demo
+[![Watch the demo]("./src/assets/demo.webm")]
 (./src/assets/demo.webm)
 
 # Getting Started
