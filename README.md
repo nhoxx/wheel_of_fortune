@@ -6,7 +6,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
    3. Animation
 
 # Demo
-[![Watch the demo]("./src/assets/demo.webm")]
+[![Watch the demo](https://github.com/threeng0227/wheel_of_fortune/blob/main/src/assets/demo.webm)")]
 
 # Getting Started
 
